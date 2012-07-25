@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib import admin
 # Create your models here.
 
 #       CREATING THE MODEL Location
@@ -37,3 +37,8 @@ class Subscription (models.Model):
     organization = models.ForeignKey(ServiceProvider)             # the subscription detail is linked to the service provider on the
                                                                                                 # primary key of the service provider
     
+admin.site.register(Location)
+admin.site.register(ServiceProvider)
+admin.site.register(Service)
+admin.site.register(Category)
+admin.site.register(Subscription)
