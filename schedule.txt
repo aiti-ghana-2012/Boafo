@@ -1,0 +1,11 @@
+Wednesday 25 July 2012:
+
+Creation of Team project and application.
+Creation of models in Model file. There may be additions tomorrow
+
+____________________________________________________
+Thursday 26 July 2012:
+
+Commencement of views and urls
+
+
