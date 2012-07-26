@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Category List</title>
+</head>
+<body>
+
+{% extends "Boafo/base.html" %}
+
+{% block content %}
+{% for cat in category %}
+
+<h2>
+<h2>
+<!-- this is the worst, but simplest way to link to the specific post.
+     Read the document mentioned in the instructions for more info
+		<a href="/Service_list/{{ svc.id }}">{{ category.service_category }}</a>-->
+</h2>
+</h2>
+
+<li>{{cat.pk}}: <a href="Boafo/service_list/{{ cat.id }}">{{cat.service_category}}</a></li>
+<ol>{{cat.description}}</ol>
+
+{% endfor %}
+
+{% endblock %}
+</body>
+</html>

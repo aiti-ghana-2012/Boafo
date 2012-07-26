@@ -2,8 +2,9 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     url(r'^$','Boafo.views.home'),
-    url(r'^service/$', 'Boafo.views.')
-    url(r'^service/(?P<id>\d+)/')
+    url(r'^services/$', 'Boafo.views.service_list'),
+    url(r'^list/$', 'Boafo.views.category_list'),
+##    url(r'^service/(?P<id>\d+)/'),
 ##    url(r'^$', 'blog.views.home'),
 ##    url(r'^posts/$', 'blog.views.post_list'),
 ##    url(r'^comments/(?P<id>\d+)/\w+?$', 'blog.views.edit_comment'),
