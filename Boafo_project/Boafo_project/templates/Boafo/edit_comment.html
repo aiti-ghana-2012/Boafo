@@ -1,0 +1,15 @@
+{% extends "blog/base.html" %}
+{% block content %}
+	{% if user.is_authenticated %}
+	<h2 align="right"><a href="/reg/logout">Logout</a></h2>
+	{% else %}
+	<h2 align="right"><a href="/reg/login">Login</a></h2>
+	{% endif %}
+    <h1 align="center"><b>Edit Comment</b></h1>
+     <div id="adc">
+	<form method="post" action="">
+		{{ form.as_p }}
+		<input type="submit" class="lsub" value="Edit Comment" />	
+	</form>
+     </div>
+{% endblock %}

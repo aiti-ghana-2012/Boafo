@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+	{% if user.is_authenticated %}
+	<h2 align="right"><a href="/reg/logout">Logout</a></h2>
+	{% else %}
+	<h2 align="right"><a href="/reg/login">Login</a></h2>
+	{% endif %}
+	{% block search%}
+	
+	{% endblock %}
+{% for post in posts %}
+	<div id="list">
+	<h2><a href="{{ post.get_absolute_url }}"> {{ post.title }}</a></h2>
+	<p>{{ post.fscb }}</p>
+	<div id="det">
+	<ul style="list-type:none">
+		<li>Created : {{ post.created }}</li>
+		<li>Last Updated : {{ post.updated }}</li>
+	</ul>
+	</div>
+	</div>
+{% endfor%}
+{% endblock %}

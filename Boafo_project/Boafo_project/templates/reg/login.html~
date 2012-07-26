@@ -1,0 +1,19 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+<div id="login">
+  {% if logged_in %}
+
+   <h2 align="center">You are already logged in. To log out, <a href="/reg/logout">Click Here</a></h2>	
+   {% endif %}
+{% if msg %}
+	 <h2 align="center" style="color:red">{{ msg }}</h2>
+{% endif %}
+  {% if not logged_in %}
+  <form action="." method="post">
+     {{ form.as_p }}
+     <input type="submit" class="lsub" value="LOGIN" />
+  </form>
+   {% endif %}
+</div>
+{% endblock %}

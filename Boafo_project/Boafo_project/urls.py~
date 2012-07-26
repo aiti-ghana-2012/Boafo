@@ -1,11 +1,13 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
+import dj_simple_sms
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-     url(r'^boafo/', include('Boafo.urls')),
+     url(r'^Boafo/', include('Boafo.urls')),
+     url(r'^sms/', include(dj_simple_sms.urls)),
      url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {'document_root' : settings.STATIC_ROOT,}),
     # Examples:
     # url(r'^$', 'Boafo_project.views.home', name='home'),

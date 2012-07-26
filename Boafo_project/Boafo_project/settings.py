@@ -118,10 +118,12 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Boafo',
+    'dj_simple_sms',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+     'south',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -152,3 +154,9 @@ LOGGING = {
         },
     }
 }
+
+
+SMS_HANDLERS = (
+    'dj_simple_sms.sample_sms_handler',
+    
+)

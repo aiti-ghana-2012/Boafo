@@ -7,6 +7,38 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render_to_response
 from models import Location, Service, ServiceProvider, Category, Subscription
 
+def list_service(request):
+    services = Service.objects.all()
+    return services
+
+
+def request_service(request):
+    if request == "":
+        list_service()
+    else:
+        if SMS contains errors
+            request_help()
+        else:
+            list_requested_service()
+    pass
+
+def list_requested_service(request):
+    services = ServiceProvider.objects.get(service = request.service, location = request.location)
+    if (!services):
+        return "There are no service providers for the service requested in your area"
+    return services
+    pass
+
+def request_help(request):
+    pass
+
+def 
+
+
+
+
+
+
 ##
 ###                                       COMMENTFORM MODELFORM
 ##class CommentForm(ModelForm):

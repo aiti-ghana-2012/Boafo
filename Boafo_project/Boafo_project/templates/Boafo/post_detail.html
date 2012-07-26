@@ -1,0 +1,44 @@
+{% extends "blog/base.html" %}
+{% block content %}
+	{% if user.is_authenticated %}
+	<h2 align="right"><a href="/reg/logout">Logout</a></h2>
+	{% else %}
+	<h2 align="right"><a href="/reg/login">Login</a></h2>
+	{% endif %}
+	<div id="list">
+	<h1>{{ post.title }}</h1>
+	<p><blockquote>{{ post.fscb }}</blockquote></p>
+		<div id="det">
+			<ul style="list-style:none">
+			<li>Created : {{ post.created }}</li>
+			<li>Last Updated : {{ post.updated }}</li>
+			</ul>
+		</div>
+	</div>
+     {% if user.is_authenticated %}
+     <h2 align="center">Post A Comment</h2>
+     <div id="adc">
+	<form method="post" action="">
+		{{ form.as_p }}
+		<input type="submit" class="lsub" value="Add Comment" />	
+	</form>
+     </div><br/><br/><br/>	
+	{% endif %}
+     <h1 align="center">All Comments</h1>
+     {% for c in comments %}
+<div id="comm">
+	<h1>{{ c.title }}</h1>
+	<p>{{ c.body }}</p><p> &nbsp; </p>
+		<div id="det">
+			<ul style="list-style:none">
+				<li>Author : {{ c.author }} </li>
+				<li>Created : {{ c.created }}</li>
+				<li>Last Updated : {{ c.updated }}</li>
+			</ul>
+		</div>
+	{% if user.username == c.author %}
+	<div> <a href="/blog/comments/{{ c.id }}/edit">Edit Comment</a> </div>
+	{% endif %}
+</div>
+     {% endfor %}
+{% endblock %}

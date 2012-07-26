@@ -1,0 +1,15 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+	{% if user.is_authenticated %}
+	<h2 align="right"><a href="/reg/logout">Logout</a></h2>
+	{% else %}
+	<h2 align="right"><a href="/reg/login">Login</a></h2>
+	{% endif %}
+<h2>Search Parameter : {{ text }} </h2>
+<h3>Post Results:</h3>
+<ul>
+{% for post in posts %}
+    <li><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></li>
+{% endfor %}
+<ul>
+{% endblock %}

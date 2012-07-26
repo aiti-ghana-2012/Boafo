@@ -1,0 +1,19 @@
+<html>
+	<head>
+		<title>Blogs R Me!</title>
+		<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>	
+	</head>
+	<body>
+	<div id="whole">
+			<a href="/blog/posts/"><h1 align="center">Blogs R Me!</h1></a>
+		</div>
+		<div id="content">
+			{% block content %}
+			
+			{% endblock%}
+		</div>
+	<div id="foot">
+			<p><h3 align="center">All Rights Reserved. Ernest Pobee &copy; 2012</h3></p>
+		</div>
+	</body>
+</html>
