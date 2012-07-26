@@ -49,10 +49,22 @@ class Subscription (models.Model):
     def __unicode__(self):
         return self.subscription_tracker
 
+#   making sure that the services which fall under a certain category are displayed under the category
+class ServiceInline(admin.TabularInline):
+    model = Service
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('service_category', 'description')
+    search_param = ('service_category')
+    inlines = [ServiceInline]
+
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ('service',)
+    search_param = ('service')
+    
 ##class CommentInline(admin.TabularInline):
 ##        model = Comment
-##
+## 
 ##class PostAdmin(admin.ModelAdmin):
 ##        list_display = ('title','created','updated')
 ##        search_param = ('title','body')
@@ -68,6 +80,6 @@ class Subscription (models.Model):
     
 admin.site.register(Location)
 admin.site.register(ServiceProvider)
-admin.site.register(Service)
-admin.site.register(Category)
+admin.site.register(Service, ServiceAdmin)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Subscription)
