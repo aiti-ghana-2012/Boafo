@@ -1,0 +1,19 @@
+Date: Friday 27 July 2012 
+
+Please note the inclusion of the folder 'SMS-sdk'
+I've made changes in the Boafo/views.py and the Boafo/urls.py
+In order to use the sms via the terminal
+1. Navigate to the 'Boafo_project/' directory and run 'python manage.py runserver'
+
+2. Open up another terminal window and navigate to the 'SMS-sdk/python-client/' directory and
+ run the command `sudo pip install -r requirements.txt`(this requires the internet)
+ then run 'python main.py terminal django'
+3. The first value you type in that terminal is the value for the To: section(this value has been set to 1430.You will receive an Unknown destination message otherwise.) Hit enter
+4. The next will be for the From: section. Hit enter Then enter the actual text you want to send
+and hit enter. Please wait a few seconds for response from system 
+NB:Our SMS transaction structure is as follows:
+the customer initially sends a blank text to 1430
+the system responds with a list of all available services
+the customer then sends a text with the service no and location separated by a space.
+The SMS for now just return with the value that was sent by the customer. Still working on it
+

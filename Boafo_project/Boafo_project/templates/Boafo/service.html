@@ -1,13 +1,13 @@
 <html>
 <head>
-<title>Category List</title>
+<title>Service List</title>
 </head>
 <body>
 
 {% extends "Boafo/base.html" %}
 
 {% block content %}
-{% for cat in categories %}
+{% for svc in service %}
 
 <h2>
 <h2>
@@ -17,8 +17,7 @@
 </h2>
 </h2>
 
-<li>{{cat.pk}}: <a href="/Boafo/category/{{ cat.id }}/">{{cat.service_category}}</a></li>
-<ol>{{cat.description}}</ol>
+<li>{{svc.pk}}: {{svc.service}}</li>
 
 {% endfor %}
 

@@ -6,7 +6,8 @@
 <body>
 <div id="content">
 <ul>
-   <li><a href="list/">Categories</a></li>
+   <li><a href="/Boafo/list/">Categories</a></li>
+   <li><a href="/Boafo/service/">All Services</a></li>
 </ul>
 {% block content %}
 

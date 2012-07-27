@@ -157,5 +157,6 @@ LOGGING = {
 
 
 SMS_HANDLERS = (
-    'dj_simple_sms.sample_sms_handler',
+   # 'dj_simple_sms.sample_sms_handler',
+    'Boafo.views.sms_request',
 )
