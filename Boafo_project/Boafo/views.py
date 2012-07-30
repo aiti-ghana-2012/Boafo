@@ -28,29 +28,40 @@ def list_all_services():
 
 # This one returns the list of service providers with their contact details based on text sent by customer
 def list_requested_sp(id,loc):
-    loc_no = Location.objects.get(location = loc)
-    s_pds = ServiceProvider.objects.filter(location = loc_no.pk).filter(service=id)
-    if(s_pds.exists()):
-        text ="Av. Service-Providers\n\n"
-        for sp in s_pds:
-            text = text + ( "SP      : " + sp.organization_name + "\n" + "Contact : "+ sp.personnel_name+ "\n" + str(sp.telephone) + "\n\n")
-        text = text + "Thank you for using Boafo services."
-    else:
-        text = "Your search returned no results. Please try again in a few minutes."
+    locs = Location.objects.all()
+    for loca in locs:
+        if loca.location.lower() == loc.lower():
+            loc_no = Location.objects.get(location = loc)
+            s_pds = ServiceProvider.objects.filter(location = loc_no.pk).filter(service=id)
+            if(s_pds.exists()):
+                text ="Av. Service-Providers\n\n"
+                for sp in s_pds:
+                    text = text + ( "SP      : " + sp.organization_name + "\n" + "Contact : "+ sp.personnel_name+ "\n" + str(sp.telephone) + "\n\n")
+                text = text + "Thank you for using Boafo services."
+                break
+            else:
+                text = "Your search returned no results. Please try again in a few minutes."
+                break
+        else:
+            text = "There is no Service provider in this location."
     return text
 
 #  This one checks the text for correct formatting
 def check_text(body):
     match = re.match(r'^\d+\s+\w+$',body)
+    matchwords = re.match(r'^\w+\s+\w+$',body)
     if match:
-        return True
+        return 1
+    if matchwords:
+        return 2
     else:
         return False
 
 
 # This composes a help text for the customer
 def help_text(body):
-    text = "Input error: " + body +" does not match our format.\n Send blank sms or 'help' to 1430 for assistance."
+    text = "Input error!\n"
+    text = text + list_all_services()  
     return text
 
 # This one extracts the service no from the body of sent text
@@ -70,7 +81,20 @@ def extract_loc_from_text(body):
         if(body[i].isalpha()):
             location = location + body[i]
     return location.strip().lower()                  # strip any whitespace and convert to lowercase before rendering location
-    
+
+def get_service_no(body):
+    service_loc = str()
+    no =int()
+    for c in body:
+        if(c !=' '):
+            service_loc = service_loc + c
+        else:
+            services = Service.objects.all()
+            for service in services:
+                if service.service.lower() == service_loc.lower():
+                    no = service.id
+                    break
+            return no
 ######################################################################
 ######################################################################
 #########                                                     SMS HANDLER                                                   ############
@@ -87,8 +111,12 @@ def sms_request(sms):
             text = list_all_services()  
             new_sms = SMS(to_number=customer, from_number=dest, body=text)
         else:
-            if (check_text(body)):                                     # check text for correct format
+            if (check_text(body) ==1):                                     # check text for correct format
                 sno = int(extract_sno_from_text(body))     # extract service no from body
+                location = extract_loc_from_text(body)      # extract location from body
+                text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
+            elif (check_text(body) == 2):
+                sno = get_service_no(body)    # extract service no from body
                 location = extract_loc_from_text(body)      # extract location from body
                 text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
             else:
