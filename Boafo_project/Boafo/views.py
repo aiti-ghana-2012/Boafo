@@ -3,7 +3,8 @@ import re
 from django.forms import ModelForm
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
-
+from django.shortcuts import render
+#from django.http import HttpResponseRedirect
 from django.template import Context, loader
 from django.shortcuts import render_to_response
 
@@ -13,6 +14,8 @@ from django.http import HttpResponse
 from dj_simple_sms.models import SMS
 
 from models import *
+
+    
 ######################################################################
 ######################################################################
 ########               SMS VIEWS FOR HANDLING OF CUSTOMER REQUESTS AND ERRORS         ############
@@ -28,40 +31,29 @@ def list_all_services():
 
 # This one returns the list of service providers with their contact details based on text sent by customer
 def list_requested_sp(id,loc):
-    locs = Location.objects.all()
-    for loca in locs:
-        if loca.location.lower() == loc.lower():
-            loc_no = Location.objects.get(location = loc)
-            s_pds = ServiceProvider.objects.filter(location = loc_no.pk).filter(service=id)
-            if(s_pds.exists()):
-                text ="Av. Service-Providers\n\n"
-                for sp in s_pds:
-                    text = text + ( "SP      : " + sp.organization_name + "\n" + "Contact : "+ sp.personnel_name+ "\n" + str(sp.telephone) + "\n\n")
-                text = text + "Thank you for using Boafo services."
-                break
-            else:
-                text = "Your search returned no results. Please try again in a few minutes."
-                break
-        else:
-            text = "There is no Service provider in this location."
+    loc_no = Location.objects.get(location = loc)
+    s_pds = ServiceProvider.objects.filter(location = loc_no.pk).filter(service=id)
+    if(s_pds.exists()):
+        text ="Av. Service-Providers\n\n"
+        for sp in s_pds:
+            text = text + ( "SP      : " + sp.organization_name + "\n" + "Contact : "+ sp.personnel_name+ "\n" + str(sp.telephone) + "\n\n")
+        text = text + "Thank you for using Boafo services."
+    else:
+        text = "Your search returned no results. Please try again in a few minutes."
     return text
 
 #  This one checks the text for correct formatting
 def check_text(body):
     match = re.match(r'^\d+\s+\w+$',body)
-    matchwords = re.match(r'^\w+\s+\w+$',body)
     if match:
-        return 1
-    if matchwords:
-        return 2
+        return True
     else:
         return False
 
 
 # This composes a help text for the customer
 def help_text(body):
-    text = "Input error!\n"
-    text = text + list_all_services()  
+    text = "Input error: " + body +" does not match our format.\n Send blank sms or 'help' to 1430 for assistance."
     return text
 
 # This one extracts the service no from the body of sent text
@@ -81,20 +73,7 @@ def extract_loc_from_text(body):
         if(body[i].isalpha()):
             location = location + body[i]
     return location.strip().lower()                  # strip any whitespace and convert to lowercase before rendering location
-
-def get_service_no(body):
-    service_loc = str()
-    no =int()
-    for c in body:
-        if(c !=' '):
-            service_loc = service_loc + c
-        else:
-            services = Service.objects.all()
-            for service in services:
-                if service.service.lower() == service_loc.lower():
-                    no = service.id
-                    break
-            return no
+    
 ######################################################################
 ######################################################################
 #########                                                     SMS HANDLER                                                   ############
@@ -111,12 +90,8 @@ def sms_request(sms):
             text = list_all_services()  
             new_sms = SMS(to_number=customer, from_number=dest, body=text)
         else:
-            if (check_text(body) ==1):                                     # check text for correct format
+            if (check_text(body)):                                     # check text for correct format
                 sno = int(extract_sno_from_text(body))     # extract service no from body
-                location = extract_loc_from_text(body)      # extract location from body
-                text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
-            elif (check_text(body) == 2):
-                sno = get_service_no(body)    # extract service no from body
                 location = extract_loc_from_text(body)      # extract location from body
                 text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
             else:
@@ -151,6 +126,13 @@ def service_list(request):
     return HttpResponse(t.render(c))
 
 
+##  LIsts all available services for a category
+def servicecat_list(request,id):
+    services_cat = Service.objects.filter(category=id)
+    t = loader.get_template('Boafo/service_list.html')
+    c = Context({'services':services_cat})
+    return HttpResponse(t.render(c))
+
 ##  LIsts all available serviceproviders for a specific service
 def provider_list(request,id):
     service = Service.objects.get(pk=id)
@@ -168,6 +150,21 @@ def category_details(request,id):
     t = loader.get_template('Boafo/service.html')
     c = Context({'service':service})
     return HttpResponse(t.render(c))
+
+
+#def do_search(request):
+#    if request.method == 'POST': # If the form has been submitted...
+#        form = SearchForm(request.POST) # A form bound to the POST data
+#        if form.is_valid(): # All validation rules pass
+#            # Process the data in form.cleaned_data
+#            # ...
+#            return HttpResponseRedirect('//') # Redirect after POST
+#    else:
+#        form = SearchtForm() # An unbound form#
+
+#    return render(request, 'contact.html', {'form': form,})
+
+
 
 # a l
 def home(request):
