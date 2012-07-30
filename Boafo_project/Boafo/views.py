@@ -150,6 +150,16 @@ def service_list(request):
     c = Context({'services':services})
     return HttpResponse(t.render(c))
 
+
+##  LIsts all available serviceproviders for a specific service
+def provider_list(request,id):
+    service = Service.objects.get(pk=id)
+    provider = ServiceProvider.objects.filter(service=id)
+    t = loader.get_template('Boafo/serviceprovider.html')
+    c = Context({'service':service,'provider':provider})
+    return HttpResponse(t.render(c))
+
+
 #  
 #       Lists a particular category's details
 def category_details(request,id):
