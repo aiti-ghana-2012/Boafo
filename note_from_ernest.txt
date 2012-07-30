@@ -16,4 +16,4 @@ the customer initially sends a blank text to 1430
 the system responds with a list of all available services
 the customer then sends a text with the service no and location separated by a space.
 The SMS for now just return with the value that was sent by the customer. Still working on it
-
+-
