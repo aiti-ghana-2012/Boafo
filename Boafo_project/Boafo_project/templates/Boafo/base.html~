@@ -1,18 +1,126 @@
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Boafo App</title>
+<title>Boafo</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="/static/bootstrap/style.css"/>	
+  
+<script type="text/javascript" src="/static/bootstrap/js/cufon-yui.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/arial.js"></script>
+<script type="text/javascript" src="/static/bootstrap/js/cuf_run.js"></script>
 </head>
-
 <body>
-<div id="content">
+<div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1><a href="/Boafo"><span>Bo</span>afo<br />
+          <small>linking YOU to help</small></a></h1>
+      </div>
+
+      <div class="clr"></div>
+      <div class="menu">
+        <ul>
+          <li><a href="#" class="active"><span>Home</span></a></li>
+          <li><a href="#"><span>Services</span></a></li>
+          <li><a href="#"><span>About Us</span></a></li>
+          <li><a href="#"><span>Contact Us</span></a></li>
+        </ul>
+      </div>
+      <div class="search">
+        <form id="form1" name="form1" method="post" action="#">
+          <label><span>
+            <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
+            </span>
+            <input name="b" type="image" src="/static/bootstrap/images/search.gif" class="button" />
+          </label>
+        </form>
+      </div>
+      <div class="clr">
+
+
+
+
+</div>
+    </div>
+    <div class="headert_text_resize"> <img src="/static/bootstrap/images/img_main.jpg" alt="" width="970" height="338" /> </div>
+    <div class="clr"></div>
+  </div>
+  <div class="body">
+    <div class="body_resize">
 <ul>
    <li><a href="/Boafo/list/">Categories</a></li>
    <li><a href="/Boafo/service/">All Services</a></li>
 </ul>
-{% block content %}
+
+      <div class="left">
+               {% block content %}
 
 
 {% endblock %}
-<div>
+</div>
+        <div class="clr"></div>
+ 
+        
+   <!--   </div>
+      <div class="right">
+        <h2>Sidebar Menu</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Partners</a></li>
+        </ul>
+        <h2>Sponsors</h2>
+        <ul class="sponsors">
+          <li class="sponsors"><a href="http://ug.edu.gh" target="_blank">University of Ghana</a></li>
+          <li class="sponsors"><a href="#">Brain Box Ghana</a></li>
+          <li class="sponsors"><a href="#">Ushahidi</a>
+          
+        </ul>
+      </div>-->
+<br/>
+<br/>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="FBG">
+    <div class="FBG_resize">
+      <div class="blok">
+        <h2><span>Image</span> Gallery</h2>
+        <img src="/static/bootstrap/images/gallery_1.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_2.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_3.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_4.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_5.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_6.gif" alt="" width="68" height="68" />
+        <div class="clr"></div>
+        <h2>Contact Info </h2>
+        <p><strong>Phone</strong>: +0264538035<br />
+          <strong>Address</strong>: Box 23 Accra<br />
+          <strong>E-mail:</strong> info@brainboxgh.com<br />
+          <a href="#">contact page</a></p>
+      </div>
+      <div class="blok">
+        <h2><span>About</span> Us</h2>
+        <p></p>
+        
+      </div>
+      <div class="blok">
+        <h2>Services</h2>
+        <p>
+
+</p>
+        <p><br />
+        </p>
+      </div>
+      <div class="clr"></div>
+    </div>
+  </div>
+  <div class="footer">
+    <div class="footer_resize">
+      <p class="lf">&copy; 2012 All Rights Reserved  <a href="#">Boafo</a>.</p>
+      <p class="rf">Powered by <a href="http://www.brainboxgh.com/">Team Brain Box</a></p>
+      <div class="clr"></div>
+    </div>
+    <div class="clr"></div>
+  </div>
+</div>
 </body>
-<html>
+</html>

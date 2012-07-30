@@ -127,7 +127,7 @@ h1 small {
 	height:33px;
 }
 .search form .keywords {
-	line-height:20px;
+	line-height:14px;
 	height:17px;
 	float:left;
 	background:url(images/search_bg.gif) left top no-repeat;
@@ -155,7 +155,7 @@ h1 small {
 .body_resize {
 	margin:0 auto;
 	padding:0;
-	width:970px;
+	width:170px;
 }
 .body {
 	margin:0;
