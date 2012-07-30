@@ -8,6 +8,7 @@
 {% extends "Boafo/base.html" %}
 
 {% block content %}
+<p>List of all Services</p>
 {% for service in services %}
 
 
@@ -19,8 +20,8 @@
 <!--<li>{{service.pk}} : {{ service.service }}</li>-->
 
 <ul>
-<ol><a href="/Boafo/provider/{{service.pk}}">{{service.pk}} : {{ service.service }}</a><br/></li>
-</ol>
+<ol><a href="/Boafo/provider/{{service.pk}}">{{service.pk}} : {{ service.service }}</a><br/></ol>
+</ul>
 {% endfor %}
 
 

@@ -88,7 +88,7 @@
   <div class="FBG">
     <div class="FBG_resize">
       <div class="blok">
-        <h2><span>Image</span> Gallery</h2>
+        <h2><span>Team</span> Boafo</h2>
         <img src="/static/bootstrap/images/gallery_1.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_2.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_3.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_4.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_5.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_6.gif" alt="" width="68" height="68" />
         <div class="clr"></div>
         <h2>Contact Info </h2>

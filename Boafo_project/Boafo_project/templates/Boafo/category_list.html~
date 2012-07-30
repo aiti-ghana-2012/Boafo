@@ -8,7 +8,8 @@
 {% extends "Boafo/base.html" %}
 
 {% block content %}
-{% for cat in categories %}
+<h2>List of all Categories</h2>
+{% for cat in category %}
 
 <h2>
 <h2>
