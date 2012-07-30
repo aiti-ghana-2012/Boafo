@@ -61,15 +61,6 @@ class CategoryAdmin(admin.ModelAdmin):
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('service',)
     search_param = ('service')
-    
-##class CommentInline(admin.TabularInline):
-##        model = Comment
-## 
-##class PostAdmin(admin.ModelAdmin):
-##        list_display = ('title','created','updated')
-##        search_param = ('title','body')
-##        list_filter=('created','author')
-##        inlines = [CommentInline]
 ##	
 ##	
 ##class CommentAdmin(admin.ModelAdmin):
