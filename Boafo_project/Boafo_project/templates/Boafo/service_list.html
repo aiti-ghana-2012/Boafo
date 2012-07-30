@@ -13,13 +13,16 @@
 <h2>
 <!-- this is the worst, but simplest way to link to the specific post.
      Read the document mentioned in the instructions for more info
-		<a href="/Service_list/{{ svc.id }}">{{ category.service_category }}</a>-->
+		<a href="/serviceprovider_list/{{ svc.id }}">{{ category.service_category }}</a>-->
 </h2>
 </h2>
 <ul>
-<li>{{service.pk}} : {{ service.service }}</li>
+<!--<li>{{service.pk}} : {{ service.service }}</li>-->
+
+<li><a href="/Boafo/provider/{{service.pk}}">{{service.pk}} : {{ service.service }}</a></li>
 </ul>
 {% endfor %}
+
 
 {% endblock %}
 </body>

@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Service-Provider List</title>
+</head>
+<body>
+
+{% extends "Boafo/base.html" %}
+
+{% block content %}
+<h3>Service Type:{{service.service}}</h3>
+{% for value in provider %}
+<ul>
+<li><b>Organization Name</b>:{{value.organization_name}}</li>
+<ul>
+<li><b>Telephone</b>:{{value.telephone}}</li>
+<li><b>Email</b>:{{value.email}}</li>
+</ul>
+<hr>
+</ul>
+{% endfor %}
+
+
+{% endblock %}
+</body>
+</html>
