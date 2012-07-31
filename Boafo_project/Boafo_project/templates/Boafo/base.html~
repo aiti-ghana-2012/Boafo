@@ -24,7 +24,6 @@
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-<div class="fb-like" data-href="http://www.brainboxgh.com/cs" data-send="true" data-width="450" data-show-faces="true" data-action="recommend"></div>
 
         <h1><a href="/Boafo"><span>Bo</span>afo<br />
           <small>linking YOU to help</small></a></h1>
@@ -60,6 +59,8 @@
   </div>
   <div class="body">
     <div class="body_resize">
+<div class="fb-like" data-href="http://www.brainboxgh.com/cs" data-send="true" data-width="450" data-show-faces="true" data-action="recommend"></div>
+
 <ul>
    <li><a href="/Boafo/list/">Categories</a></li>
    <li><a href="/Boafo/service/">All Services</a></li>
