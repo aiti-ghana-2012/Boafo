@@ -171,3 +171,9 @@ def home(request):
     t = loader.get_template('Boafo/base.html')
     c = Context({ })
     return HttpResponse(t.render(c))
+
+# This is the about boafo page
+def about(request):
+    t = loader.get_template('Boafo/about.html')
+    c = Context({ })
+    return HttpResponse(t.render(c))
