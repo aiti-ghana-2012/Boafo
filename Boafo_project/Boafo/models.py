@@ -61,6 +61,8 @@ class CategoryAdmin(admin.ModelAdmin):
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('service',)
     search_param = ('service')
+
+
 ##	
 ##	
 ##class CommentAdmin(admin.ModelAdmin):

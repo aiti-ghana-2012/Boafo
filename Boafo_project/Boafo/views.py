@@ -177,3 +177,24 @@ def about(request):
     t = loader.get_template('Boafo/about.html')
     c = Context({ })
     return HttpResponse(t.render(c))
+
+
+# This is the contact boafo page
+def contact(request):
+    t = loader.get_template('Boafo/feedback_form.html')
+    c = Context({ })
+    return HttpResponse(t.render(c))
+
+@csrf_exempt
+# This is the Mail boafo page
+def mail(request):
+    t = loader.get_template('Boafo/send_mail.php')
+    c = Context({ })
+    return HttpResponse(t.render(c))
+
+@csrf_exempt
+# This is the Thank You page
+def thanks(request):
+    t = loader.get_template('Boafo/thankyou.html')
+    c = Context({ })
+    return HttpResponse(t.render(c))

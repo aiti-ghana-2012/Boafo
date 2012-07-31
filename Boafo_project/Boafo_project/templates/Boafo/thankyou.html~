@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Thank You</title>	
+</head>
+<body>
+{% extends "Boafo/base.html" %}
+
+{% block content %}
+<h1>Thanks for your feedback!</h1>{% csrf_token %}
+<p>We appreciate that you took the time to send us feedback. Your feedback has been sent to the webmaster.</p>
+<p><a href="/Boafo/contact">Back to feedback form</a>.</p>
+
+{% endblock %}
+</body>
+</html>
+
