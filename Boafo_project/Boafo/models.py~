@@ -61,15 +61,14 @@ class CategoryAdmin(admin.ModelAdmin):
 class ServiceAdmin(admin.ModelAdmin):
     list_display = ('service',)
     search_param = ('service')
-    
-##class CommentInline(admin.TabularInline):
-##        model = Comment
-## 
-##class PostAdmin(admin.ModelAdmin):
-##        list_display = ('title','created','updated')
-##        search_param = ('title','body')
-##        list_filter=('created','author')
-##        inlines = [CommentInline]
+
+#Conat
+class ContactForm(forms.Form):
+    name = forms.CharField()
+    email = forms.EmailField()
+    topic = forms.CharField()
+    message = forms.CharField(widget=Textarea())
+
 ##	
 ##	
 ##class CommentAdmin(admin.ModelAdmin):

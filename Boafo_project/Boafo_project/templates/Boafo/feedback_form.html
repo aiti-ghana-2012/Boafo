@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Feedback Form</title>	
+</head>
+<body>
+{% extends "Boafo/base.html" %}
+
+{% block content %}
+<h2>Send Us Your Feedback!</h2>
+<form action="/Boafo/thanks/" method="post">{% csrf_token %}
+<table>
+<tr>
+<td>Email Adress:</td>
+<td>
+<input type="text" name="email_address" value="" maxlength="100" />
+</td>
+</tr>
+<tr>
+<td>Comments:</td>
+<td>
+<textarea rows="10" cols="50" name="comments"></textarea>
+</td>
+</tr>
+<tr><td> </td>
+<td>
+<input type="submit" value="Submit" />
+</td>
+</tr>
+</table>
+</form>
+{% endblock %}
+</body>
+</html>
+

@@ -3,29 +3,47 @@
 <head>
 <title>Boafo</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" href="/static/bootstrap/style.css"/>	
-  
+<link rel="stylesheet" href="/static/bootstrap/style.css"/>	 
 <script type="text/javascript" src="/static/bootstrap/js/cufon-yui.js"></script>
 <script type="text/javascript" src="/static/bootstrap/js/arial.js"></script>
 <script type="text/javascript" src="/static/bootstrap/js/cuf_run.js"></script>
 </head>
 <body>
+<!--FB Like-->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<!--FB Like-->
+
+
+
+
 <div class="main">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
+
         <h1><a href="/Boafo"><span>Bo</span>afo<br />
           <small>linking YOU to help</small></a></h1>
+
       </div>
 
       <div class="clr"></div>
       <div class="menu">
+
         <ul>
-          <li><a href="#" class="active"><span>Home</span></a></li>
-          <li><a href="#"><span>Services</span></a></li>
-          <li><a href="#"><span>About Us</span></a></li>
-          <li><a href="#"><span>Contact Us</span></a></li>
+          <li><a href="/Boafo" class="active"><span>Home</span></a></li>
+          <li><a href="/Boafo/about"><span>About Us</span></a></li>
+	  <li><a href="/Boafo/service/"><span>Services</span></a></li>
+          <li><a href="/Boafo/contact/"><span>Contact Us</span></a></li>
+
         </ul>
+
       </div>
       <div class="search">
         <form id="form1" name="form1" method="post" action="#">
@@ -37,10 +55,6 @@
         </form>
       </div>
       <div class="clr">
-
-
-
-
 </div>
     </div>
     <div class="headert_text_resize"> <img src="/static/bootstrap/images/img_main.jpg" alt="" width="970" height="338" /> </div>
@@ -48,26 +62,29 @@
   </div>
   <div class="body">
     <div class="body_resize">
+<div class="fb-like" data-href="http://www.brainboxgh.com/cs" data-send="true" data-width="450" data-show-faces="true" data-action="recommend"></div>
+
 <ul>
    <li><a href="/Boafo/list/">Categories</a></li>
    <li><a href="/Boafo/service/">All Services</a></li>
 </ul>
+	<div class="left">
+<div class="clr"></div>
+	        {% block content %}
 
-      <div class="left">
-               {% block content %}
 
-
-{% endblock %}
-</div>
-        <div class="clr"></div>
+		{% endblock %}
+<div class="fb-comments" data-href="http://brainboxgh.com/cs" data-num-posts="2" data-width="470"></div>
+	
+        
  
         
-   <!--   </div>
+     </div>
       <div class="right">
         <h2>Sidebar Menu</h2>
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
+          <li><a href="/Boafo">Home</a></li>
+          <li><a href="/Boafo/service/">Services</a></li>
           <li><a href="#">Support</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Partners</a></li>
@@ -75,11 +92,11 @@
         <h2>Sponsors</h2>
         <ul class="sponsors">
           <li class="sponsors"><a href="http://ug.edu.gh" target="_blank">University of Ghana</a></li>
-          <li class="sponsors"><a href="#">Brain Box Ghana</a></li>
-          <li class="sponsors"><a href="#">Ushahidi</a>
+          <li class="sponsors"><a href="brainboxgh.com" target="_blank">Brain Box Ghana</a></li>
+       
           
         </ul>
-      </div>-->
+      </div>
 <br/>
 <br/>
       <div class="clr"></div>
@@ -88,14 +105,14 @@
   <div class="FBG">
     <div class="FBG_resize">
       <div class="blok">
-        <h2><span>Image</span> Gallery</h2>
+        <h2><span>Team</span> Boafo</h2>
         <img src="/static/bootstrap/images/gallery_1.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_2.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_3.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_4.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_5.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_6.gif" alt="" width="68" height="68" />
         <div class="clr"></div>
         <h2>Contact Info </h2>
-        <p><strong>Phone</strong>: +0264538035<br />
+        <p><strong>Phone</strong>: 0264538035<br />
           <strong>Address</strong>: AF 2901 Adentan<br />
           <strong>E-mail:</strong> info@brainboxgh.com<br />
-          <a href="#">contact page</a></p>
+          <a href="/Boafo/contactview/">contact page</a></p>
       </div>
       <div class="blok">
         <h2><span>About</span> Us</h2>

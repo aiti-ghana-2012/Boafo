@@ -1,13 +1,15 @@
 <html>
 <head>
 <title>Category List</title>
+<link rel="stylesheet" href="/static/bootstrap/style.css"/>	
 </head>
 <body>
 
 {% extends "Boafo/base.html" %}
 
 {% block content %}
-{% for cat in categories %}
+<h2>List of all Categories</h2>
+{% for cat in category %}
 
 <h2>
 <h2>
