@@ -31,21 +31,27 @@ def list_all_services():
 
 # This one returns the list of service providers with their contact details based on text sent by customer
 def list_requested_sp(id,loc):
-    loc_no = Location.objects.get(location = loc)
-    s_pds = ServiceProvider.objects.filter(location = loc_no.pk).filter(service=id)
-    if(s_pds.exists()):
-        text ="Av. Service-Providers\n\n"
-        for sp in s_pds:
-            text = text + ( "SP      : " + sp.organization_name + "\n" + "Contact : "+ sp.personnel_name+ "\n" + str(sp.telephone) + "\n\n")
-        text = text + "Thank you for using Boafo services."
+    locs = Location.objects.filter(location = loc)
+    if locs.exists():
+        loc_no = Location.objects.get(location = loc) 
+        if loc_no:
+            s_pds = ServiceProvider.objects.filter(location = loc_no.pk).filter(service=id)
+            if(s_pds.exists()):
+                text ="Av. Service-Providers\n\n"
+                for sp in s_pds:
+                    text = text + ( "SP  : " + sp.organization_name + "\n" + "Contact : "+ sp.personnel_name+ "\n" + str(sp.telephone) + "\n\n")
+                text = text + "Thank you for using Boafo services."
+            else:
+                text = "Your search returned no results. Please try again in a few minutes."
     else:
-        text = "Your search returned no results. Please try again in a few minutes."
+        text = "There are no service providers currently in that location."
     return text
 
 #  This one checks the text for correct formatting
 def check_text(body):
-    match = re.match(r'^\d+\s+\w+$',body)
-    wordmatch = re.match(r'^\w+\s+\w+$',body)
+    body = body.lstrip()
+    match = re.match(r'^\d+\s+\D+$',body)
+    wordmatch = re.match(r'^\w+\s+\D+$',body)
     if match:
         return 1
     elif wordmatch:
@@ -56,14 +62,16 @@ def check_text(body):
 
 # This composes a help text for the customer
 def help_text(body):
+    body = body.lstrip()
     text = "Input error: " + body +" does not match our format.\n Send blank sms or 'help' to 1430 for assistance."
     return text
 
 # This one extracts the service no from the body of sent text
 def extract_sno_from_text(body):
+    body = body.lstrip()
     service_no = str()
     for c in body:
-        if(c !=' '):
+        if(c != ' '):
             service_no = service_no + c
         else:
             return service_no
@@ -71,12 +79,22 @@ def extract_sno_from_text(body):
 
 ## This view extracts the service from the text and returns the service no
 def extract_srv_from_text(body):
+    body = body.lstrip()
     service = str()
-    for c in body:
-        if (c.)
+    service_no = int()
+    for c in range(body.index(' ')):
+            service = service + body[c]
+    service = service.lower()
+    services = Service.objects.all()
+    for s in services:
+        if s.service.lower() == service:
+            service_no = s.pk
+            return service_no
+    
 
 # This one extracts the location from the body of sent text
 def extract_loc_from_text(body):
+    body = body.lstrip()
     location = str()
     for i in range((body.index(' ') +1),(len(body))):
         if(body[i].isalpha()):
@@ -92,8 +110,6 @@ def sms_request(sms):
     dest = sms.to_number                    #incoming sms destination value/address
     customer = sms.from_number        # incoming sms source value/address
     body = sms.body                            # body of incoming text
-    # if the text was sent to 'Boafo' or 'boafo'
-
     if (body=='' or body =='help'):
         text = list_all_services()  
         new_sms = SMS(to_number=customer, from_number=dest, body=text)
@@ -101,11 +117,12 @@ def sms_request(sms):
         if (check_text(body) == 1):                                     # check text for correct format
             sno = int(extract_sno_from_text(body))     # extract service no from body
             location = extract_loc_from_text(body)      # extract location from body
+            text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
         elif (check_text(body) == 2):
             location = extract_loc_from_text(body)      # extract location from body
-            sno = extract_srv_from_text(body)
-        text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
-        else:
+            sno = int(extract_srv_from_text(body))
+            text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
+        elif(check_text(body) != True):
             text = help_text(body)                               # a help text is sent to the customer
         new_sms = SMS(to_number=customer, from_number=dest, body=text)
     new_sms.send()
