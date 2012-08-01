@@ -1,4 +1,5 @@
 @charset "utf-8";
+<<<<<<< HEAD
 
 
 
@@ -2213,6 +2214,8 @@ button.close {
 
 
 
+=======
+>>>>>>> 93ff2b0a43ed625e964bfd35bfd61c5407ca0fc6
 body {
 	margin:0;
 	padding:0;
@@ -2277,7 +2280,11 @@ h1 small {
 .menu {
 	padding:4px 0 0 0;
 	margin:0;
+<<<<<<< HEAD
 	width:610px;
+=======
+	width:410px;
+>>>>>>> 93ff2b0a43ed625e964bfd35bfd61c5407ca0fc6
 	float:left;
 }
 .menu ul {

@@ -3,12 +3,18 @@
 <head>
 <title>Boafo</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<<<<<<< HEAD
 <link rel="stylesheet" href="/static/bootstrap/style.css"/>	 
 <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.css"/>
+=======
+<link rel="stylesheet" href="/static/bootstrap/style.css"/>	
+  
+>>>>>>> 93ff2b0a43ed625e964bfd35bfd61c5407ca0fc6
 <script type="text/javascript" src="/static/bootstrap/js/cufon-yui.js"></script>
 <script type="text/javascript" src="/static/bootstrap/js/arial.js"></script>
 <script type="text/javascript" src="/static/bootstrap/js2/arial.js"></script>
 <script type="text/javascript" src="/static/bootstrap/js/cuf_run.js"></script>
+<<<<<<< HEAD
 <!--
 <script type="text/javascript">
 
@@ -47,22 +53,23 @@ window.open(theURL,winName,features);
 
 
 
+=======
+</head>
+<body>
+>>>>>>> 93ff2b0a43ed625e964bfd35bfd61c5407ca0fc6
 <div class="main">
   <div class="header">
     <div class="header_resize">
       <div class="logo">
-
-<span><img src="/static/bootstrap/images/green_leaf.jpg" alt="" width="120" height="120" style="float:left;"/><span>
         <h1><a href="/Boafo"><span>Bo</span>afo<br />
           <small>linking YOU to help</small></a></h1>
-
       </div>
 
       <div class="clr"></div>
       <div class="menu">
-
         <ul>
           <li><a href="/Boafo" class="active"><span>Home</span></a></li>
+<<<<<<< HEAD
           <li><a href="/Boafo/about"><span>About Us</span></a></li>
 	  <li><a href="/Boafo/service/"><span>Services</span></a></li>
 	  <li><a href="/Boafo/list/"><span>Categories</span></a></li>
@@ -70,21 +77,30 @@ window.open(theURL,winName,features);
 	  <li><a href="/Boafo/register/"><span>Register</span></a></li>
           <li><a href="/Boafo/contact/"><span>Contact Us</span></a></li>
 
+=======
+          <li><a href="/Boafo/service"><span>Services</span></a></li>
+          <li><a href="#"><span>About Us</span></a></li>
+          <li><a href="#"><span>Contact Us</span></a></li>
+>>>>>>> 93ff2b0a43ed625e964bfd35bfd61c5407ca0fc6
         </ul>
-
       </div>
       <div class="search">
-        <form id="form1" name="form1" method="post" action="#">
+          <form id="form1" name="form1" method="post" action="/Boafo/search/{{term}}/">
           <label><span>
-            <input name="q" type="text" class="keywords" id="textfield" maxlength="50" value="Search..." />
+            <input name="term" type="text" class="keywords" id="textfield" maxlength="50"/>
             </span>
             <input name="b" type="image" src="/static/bootstrap/images/search.gif" class="button" />
           </label>
         </form>
       </div>
       <div class="clr">
+
+
+
+
 </div>
     </div>
+<<<<<<< HEAD
     <div class="headert_text_resize"><!-- <img src="/static/bootstrap/images/img_main.jpg" alt="" width="970" height="338" /> -->
 <img src="/static/bootstrap/images/img_main.jpg" name="slide" width=970 height=338>
 </div>
@@ -107,15 +123,18 @@ setTimeout("slideit()",2500)
 slideit()
 //
 </script>-->
+=======
+    <div class="headert_text_resize"> <img src="/static/bootstrap/images/img_main.jpg" alt="" width="970" height="338" /> </div>
+>>>>>>> 93ff2b0a43ed625e964bfd35bfd61c5407ca0fc6
     <div class="clr"></div>
   </div>
   <div class="body">
     <div class="body_resize">
-<div class="fb-like" data-href="http://www.brainboxgh.com/cs" data-send="true" data-width="450" data-show-faces="true" data-action="recommend"></div>
-
 <ul>
-   
+   <li><a href="/Boafo/list/">Categories</a></li>
+   <li><a href="/Boafo/service/">All Services</a></li>
 </ul>
+<<<<<<< HEAD
 	<div class="left">
 <div class="clr"></div>
 
@@ -123,29 +142,24 @@ slideit()
 <!--<img src="/static/bootstrap/images/soln.JPG" width="500px">-->
 	
         {% block content %}
+=======
+>>>>>>> 93ff2b0a43ed625e964bfd35bfd61c5407ca0fc6
+
+      <div class="left">
+               {% block content %}
 
 
-		{% endblock %}
-
-<div class="fb-comments" data-href="http://brainboxgh.com/cs" data-num-posts="2" data-width="470"></div>
-	
-        
+{% endblock %}
+</div>
+        <div class="clr"></div>
  
         
-     </div>
+   <!--   </div>
       <div class="right">
-
-        <h2>Quick Links</h2>
-<ul>
-<li>
-<a href="javascript:;" onClick="MM_openBrWindow('/static/bootstrap/images/Boafo_advert_final.swf','template','width=780,height=550')">View Advert
- <img src="/static/bootstrap/images/newblink.gif" ></a>
-<!--<a href="/static/bootstrap/images/Boafo_advert_final.swf">View Advert</a>-->
-</li> 
-</ul> 
-    <ul>
-          <li><a href="/Boafo">Home</a></li>
-          <li><a href="/Boafo/service/">Services</a></li>
+        <h2>Sidebar Menu</h2>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
           <li><a href="#">Support</a></li>
           <li><a href="#">Blog</a></li>
           <li><a href="#">Partners</a></li>
@@ -153,11 +167,11 @@ slideit()
         <h2>Sponsors</h2>
         <ul class="sponsors">
           <li class="sponsors"><a href="http://ug.edu.gh" target="_blank">University of Ghana</a></li>
-          <li class="sponsors"><a href="brainboxgh.com" target="_blank">Brain Box Ghana</a></li>
-       
+          <li class="sponsors"><a href="#">Brain Box Ghana</a></li>
+          <li class="sponsors"><a href="#">Ushahidi</a>
           
         </ul>
-      </div>
+      </div>-->
 <br/>
 <br/>
       <div class="clr"></div>
@@ -170,10 +184,10 @@ slideit()
         <img src="/static/bootstrap/images/gallery_1.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_2.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_3.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_4.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_5.gif" alt="" width="68" height="68" /><img src="/static/bootstrap/images/gallery_6.gif" alt="" width="68" height="68" />
         <div class="clr"></div>
         <h2>Contact Info </h2>
-        <p><strong>Phone</strong>: 0264538035<br />
+        <p><strong>Phone</strong>: +0264538035<br />
           <strong>Address</strong>: AF 2901 Adentan<br />
           <strong>E-mail:</strong> info@brainboxgh.com<br />
-          <a href="/Boafo/contact/">contact page</a></p>
+          <a href="#">contact page</a></p>
       </div>
       <div class="blok">
         <h2><span>About</span> Us</h2>
