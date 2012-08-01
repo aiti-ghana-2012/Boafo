@@ -45,7 +45,7 @@ header( "Location: error_message.html" );
 else {
 mail( "kwamas2001@yahoo.com", "Feedback Form Results",
   $comments, "From: $email_address" );
-header( "Location: /Boafo/thanks" );
+header( "Location: thankyou.html" );
 
 }
 ?>
@@ -53,7 +53,7 @@ header( "Location: /Boafo/thanks" );
 <html>
 <head><title></title></head>
 
-asldkfjlkasdjfkl;j
+
 <body></body>
 </html>
 {% endblock %}
