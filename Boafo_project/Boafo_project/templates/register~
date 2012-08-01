@@ -1,0 +1,39 @@
+<html>
+<head><title>Post Detail</title></head>
+<body>
+{%extends 'base.html'%}
+
+
+{% block content %}
+
+
+
+<h3>Comments</h3>
+{% for comm in comment %}
+<ol>
+<ul>
+<li>Comment Author:{{comm.comment_author}}</li>
+<li>Comment:{{comm.comment_body}}</li>
+<div>
+{% if user.username == comm.comment_author %}
+<a href="/blog/posts/edit_comment/{{ comm.id }}/edit">Edit Comment</a>
+{% endif %}
+</div>
+
+</ul>
+</ol>
+<hr>
+{% endfor %}
+
+<h3>New Comment:</h3>
+<div>
+	<form method="post" action="" class="well">
+	{{ form.as_p }}
+        
+	<input type="Submit" name="Submit">	
+	</form>
+</div>
+
+{% endblock %}
+</body>
+</html>

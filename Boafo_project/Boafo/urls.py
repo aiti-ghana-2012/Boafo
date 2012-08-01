@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     url(r'^contact/$', 'Boafo.views.contact'),
     url(r'^mail/$', 'Boafo.views.mail'),
     url(r'^thanks/$', 'Boafo.views.thanks'),
-
+    url(r'^register/$', 'Boafo.views.register'),
 ##    url(r'^service/(?P<id>\d+)/'),
 ##    url(r'^$', 'blog.views.home'),
 ##    url(r'^posts/$', 'blog.views.post_list'),

@@ -1,0 +1,22 @@
+<html>
+<head><title>Post Detail</title></head>
+<body>
+{%extends 'Boafo/base.html'%}
+
+
+{% block content %}
+
+
+
+
+<div>
+	<form method="post" action="" class="well">
+	{{ form.as_p }}
+        
+	<input type="Submit" name="Submit">	
+	</form>
+</div>
+
+{% endblock %}
+</body>
+</html>

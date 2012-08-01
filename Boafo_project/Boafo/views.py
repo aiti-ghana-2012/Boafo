@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-#from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.template import Context, loader
 from django.shortcuts import render_to_response
 
@@ -221,3 +221,26 @@ def thanks(request):
     t = loader.get_template('Boafo/thankyou.html')
     c = Context({ })
     return HttpResponse(t.render(c))
+
+class RegisterForm(ModelForm):
+	class Meta:
+		model=ServiceProvider
+
+                #exclude=['comment_post','comment_author']
+@csrf_exempt
+def register(request):
+    
+    if request.method== 'POST':
+    	form=RegisterForm(request.POST)
+
+	if form.is_valid():
+	    form.save()
+	    return HttpResponse("asdfasdf")
+	return HttpResponseRedirect(request.path)
+    else:
+	form=RegisterForm()
+
+    t = loader.get_template('Boafo/register.html')
+    c = Context({'form':form })
+    return HttpResponse(t.render(c))
+

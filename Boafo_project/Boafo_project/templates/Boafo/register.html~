@@ -1,0 +1,27 @@
+
+<html>
+<head><title>Register</title></head>
+<body>
+{% extends "Boafo/base.html" %}
+
+{% block content %}
+
+
+
+<div >
+    
+	<form method="post" action="" class="well">
+<fieldset
+    class="control-group error">
+    
+    
+<tr><td>{{ form.as_p }}</td></tr>
+  </fieldset>   
+	<input type="Submit" name="Submit" value="Save" class="btn-info">	
+	</form>
+
+</div>
+
+{% endblock %}
+</body>
+</html>
