@@ -1,4 +1,56 @@
 @charset "utf-8";
+
+.fadein { position:relative; width:500px; height:332px; }
+.fadein img { position:absolute; left:0; top:0; }
+
+
+
+
+.rs-slideshow {
+	border: 12px solid #444;
+	height: 240px;
+	margin: 24px auto;
+	overflow: hidden;
+	position: relative;
+	width: 620px;
+}
+
+.rs-slideshow .slide-container {
+	background-color: #444;
+	height: 100%;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.slide-container .slide-caption {
+	background-color: #000;
+	bottom: 0;
+	color: #fff;
+	display: block;
+	left: 0;
+	padding: 6px 12px;
+	position: absolute;
+	text-align: center;
+	right: 0;
+	filter: alpha(opacity=70);
+	-khtml-opacity: 0.7;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+}
+
+.rs-slideshow .slide-container img {
+	position: absolute;
+}
+
+/*	Hide the slide data container	*/
+.rs-slideshow .slides {
+	display: none;
+}
+
+
 body {
 	margin:0;
 	padding:0;
@@ -63,7 +115,7 @@ h1 small {
 .menu {
 	padding:4px 0 0 0;
 	margin:0;
-	width:410px;
+	width:510px;
 	float:left;
 }
 .menu ul {
@@ -155,7 +207,7 @@ h1 small {
 .body_resize {
 	margin:0 auto;
 	padding:0;
-	width:170px;
+	width:970px;
 }
 .body {
 	margin:0;
@@ -179,10 +231,16 @@ h1 small {
 	line-height:1.8em;
 }
 .body img {
-	float:left;
+	/*float:left;*/
 	margin:5px;
 	padding:0;
 }
+
+#img2 {
+	margin:5px;
+	padding:0;
+}
+
 .body img.floated {
 	float:right;
 	margin:5px 10px 5px 0;
