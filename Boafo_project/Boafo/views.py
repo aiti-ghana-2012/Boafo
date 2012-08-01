@@ -10,6 +10,7 @@ from django.shortcuts import render_to_response
 
 from django.template import Context, loader
 from django.http import HttpResponse
+from datetime import datetime
 
 from dj_simple_sms.models import SMS
 
@@ -53,6 +54,7 @@ def check_text(body):
     match = re.match(r'^\d+\s+\D+$',body)
     wordmatch = re.match(r'^\w+\s+\D+$',body)
     if match:
+        
         return 1
     elif wordmatch:
         return 2
@@ -110,9 +112,10 @@ def sms_request(sms):
     dest = sms.to_number                    #incoming sms destination value/address
     customer = sms.from_number        # incoming sms source value/address
     body = sms.body                            # body of incoming text
-    if (body=='' or body =='help'):
-        text = list_all_services()  
-        new_sms = SMS(to_number=customer, from_number=dest, body=text)
+    if (body=='' or body.lower() =='help'):
+        text = list_all_services()
+    elif(body.lower() == 'subscribe'):
+        text = "You have succesfully subscribed to Boafo service for the month.\nYour details will now be forwarded to clients."
     else:
         if (check_text(body) == 1):                                     # check text for correct format
             sno = int(extract_sno_from_text(body))     # extract service no from body
@@ -124,7 +127,7 @@ def sms_request(sms):
             text = list_requested_sp(sno,location)        # all services providers matching the criteria are stored
         elif(check_text(body) != True):
             text = help_text(body)                               # a help text is sent to the customer
-        new_sms = SMS(to_number=customer, from_number=dest, body=text)
+    new_sms = SMS(to_number=customer, from_number=dest, body=text)
     new_sms.send()
     
 
