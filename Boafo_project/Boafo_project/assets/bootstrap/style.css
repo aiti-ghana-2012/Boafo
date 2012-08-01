@@ -1,6 +1,4 @@
 @charset "utf-8";
-
-
 body {
 	margin:0;
 	padding:0;
@@ -65,7 +63,7 @@ h1 small {
 .menu {
 	padding:4px 0 0 0;
 	margin:0;
-	width:510px;
+	width:410px;
 	float:left;
 }
 .menu ul {
@@ -181,16 +179,10 @@ h1 small {
 	line-height:1.8em;
 }
 .body img {
-	/*float:left;*/
+	float:left;
 	margin:5px;
 	padding:0;
 }
-
-#img2 {
-	margin:5px;
-	padding:0;
-}
-
 .body img.floated {
 	float:right;
 	margin:5px 10px 5px 0;

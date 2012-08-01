@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Search Results</title>
+</head>
+
+<body>
+{% extends "Boafo/base.html"%}
+
+
+{% block content %}
+
+<p>The word '{{term}}' can be found in the following Organizations:</p>
+
+{% for value in service %}
+<ol>
+
+
+<li>Organization Name:{{value.organization_name}}</li>
+<li>Telephone:{{value.telephone}}</li>
+<li>Email:{{value.email}}</li>
+
+<ol>
+{% endfor %}
+
+
+{% endblock %}<body>
+</html>
